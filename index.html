@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyPropBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #chat-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #00eeff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #00ff1e;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+        #keywords {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        #keywords h2 {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        #keywords ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #keywords ul li {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Ask the SkyPropBot</h1>
+        <form id="chat-form">
+            <label for="query">Your Query:</label><br>
+            <input type="text" id="query" name="query" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="response"></div>
+        <br>
+        <div id="keywords">
+            
+            <h2>Keywords for Queries:</h2>
+            <ul>
+                <li>average price</li>
+                <li>average size</li>
+                <li>available locations</li>
+                <li>property details</li>
+                <li>amenities</li>
+                <li>price ranges</li>
+                <li>properties below a certain price</li>
+            </ul>
+            <p>Include these keywords in your query to get relevant information.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const query = document.getElementById('query').value;
+            const responseDiv = document.getElementById('response');
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query: query })
+                });
+
+                const data = await response.json();
+                responseDiv.textContent = data.response;
+            } catch (error) {
+                console.error('Error:', error);
+                responseDiv.textContent = 'Error processing request.';
+            }
+        });
+    </script>
+</body>
+</html>
