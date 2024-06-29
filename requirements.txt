@@ -3,3 +3,4 @@ Flask-Cors==4.0.1
 gunicorn==22.0.0
 tensorflow==2.15.0
 tensorflow-intel 
+pandas==1.3.5
