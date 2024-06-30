@@ -1,5 +1,7 @@
-flask
-pandas
-transformers
-torch
-tf-keras
+Flask==3.0.3
+Flask-Cors==4.0.1
+gunicorn==22.0.0
+pandas==2.2.2
+transformers==4.42.2
+torch==2.3.1
+tf-keras==2.16.0

@@ -1,0 +1,12 @@
+[2024-06-30 17:05:58 +0530] [2687] [INFO] Starting gunicorn 20.1.0
+[2024-06-30 17:05:58 +0530] [2687] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-06-30 17:05:58 +0530] [2687] [ERROR] Retrying in 1 second.
+[2024-06-30 17:05:59 +0530] [2687] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-06-30 17:05:59 +0530] [2687] [ERROR] Retrying in 1 second.
+[2024-06-30 17:06:00 +0530] [2687] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-06-30 17:06:00 +0530] [2687] [ERROR] Retrying in 1 second.
+[2024-06-30 17:06:01 +0530] [2687] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-06-30 17:06:01 +0530] [2687] [ERROR] Retrying in 1 second.
+[2024-06-30 17:06:02 +0530] [2687] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-06-30 17:06:02 +0530] [2687] [ERROR] Retrying in 1 second.
+[2024-06-30 17:06:03 +0530] [2687] [ERROR] Can't connect to ('127.0.0.1', 8000)

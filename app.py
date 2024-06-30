@@ -74,6 +74,6 @@ if df is not None:
         return jsonify({'response': response})
 
     if __name__ == '__main__':
-        app.run(debug=True)
+        app.run(host='0.0.0.0', port=5000)
 else:
     print("DataFrame is not defined. Please check the CSV file and try again.")
